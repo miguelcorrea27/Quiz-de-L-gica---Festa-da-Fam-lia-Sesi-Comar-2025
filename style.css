@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Fredoka', sans-serif;
+  background: url('assets/background.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  color: yellow;
+  animation: fadeIn 1s ease;
+}
+
+.slide.active {
+  display: flex;
+}
+
+h1, h2 {
+  color: yellow;
+  text-shadow: 1px 1px 2px black;
+}
+
+.btn {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: #ffe600;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #fff056;
+  transform: scale(1.05);
+}
+
+.img-pergunta {
+  max-width: 100%;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 600px) {
+  .btn {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .slide {
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+  }
+
+  .img-pergunta {
+    max-height: 250px;
+    object-fit: contain;
+  }
+}
+

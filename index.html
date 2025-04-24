@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Lógica - Festa da Família</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="assets/theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <!-- Início -->
+    <div class="slide active" id="slide-inicio">
+      <h1>QUIZ DE LÓGICA</h1>
+      <button class="btn" onclick="irPara('slide-regras')">COMEÇAR</button>
+    </div>
+
+    <!-- Regras -->
+    <div class="slide" id="slide-regras">
+      <h2>REGRAS</h2>
+      <ol>
+        <li>RESPONDA AS QUESTÕES</li>
+        <li>QUEBRE A CABEÇA</li>
+        <li>TERMINE O QUIZ</li>
+      </ol>
+      <button class="btn" onclick="irPara('slide-p1')">COMEÇAR</button>
+    </div>
+
+    <!-- Pergunta 1 -->
+    <div class="slide" id="slide-p1">
+      <h2>PERGUNTA 1</h2>
+      <p>Identificando os valores dos desenhos, descubra o resultado da operação.</p>
+      <img src="assets/questao1.jpg" class="img-pergunta">
+      <button class="btn" onclick="verificar('slide-p1', 'B', 'slide-p2')">A. 14</button>
+      <button class="btn" onclick="verificar('slide-p1', 'B', 'slide-p2')">B. 15</button>
+      <button class="btn" onclick="verificar('slide-p1', 'B', 'slide-p2')">C. 16</button>
+      <button class="btn" onclick="verificar('slide-p1', 'B', 'slide-p2')">D. 17</button>
+      <p class="feedback" id="feedback-p1"></p>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div class="slide" id="slide-p2">
+      <h2>PERGUNTA 2</h2>
+      <p>O que você vê?</p>
+      <img src="assets/questao2.jpg" class="img-pergunta">
+      <input type="text" id="resposta-p2" placeholder="Digite sua resposta aqui">
+      <button class="btn" onclick="verificarTextoFlex('slide-p2','slide-p3', [
+        'uma princesa e uma bruxa',
+        'uma bruxa e uma princesa',
+        'bruxa e princesa',
+        'princesa e bruxa',
+        'a princesa e a bruxa',
+        'a bruxa e a princesa',
+        'Uma princesa e uma bruxa',
+        'Uma bruxa e uma princesa',
+        'Bruxa e princesa',
+        'Princesa e bruxa',
+        'A princesa e a bruxa',
+        'A bruxa e a princesa'
+        ])">RESPONDER</button>
+      <p class="feedback" id="feedback-p2"></p>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div class="slide" id="slide-p3">
+      <h2>PERGUNTA 3</h2>
+      <p>Quantos rostos há na imagem?</p>
+      <img src="assets/questao3.jpg" class="img-pergunta">
+      <button class="btn" onclick="verificar('slide-p3', 'C', 'slide-p3-feedback')">A. 11</button>
+      <button class="btn" onclick="verificar('slide-p3', 'C', 'slide-p3-feedback')">B. 12</button>
+      <button class="btn" onclick="verificar('slide-p3', 'C', 'slide-p3-feedback')">C. 13</button>
+      <button class="btn" onclick="verificar('slide-p3', 'C', 'slide-p3-feedback')">D. 14</button>
+      <p class="feedback" id="feedback-p3"></p>
+    </div>
+
+    <div class="slide" id="slide-p3-feedback">
+      <h2>EXPLICAÇÃO</h2>
+      <img src="assets/questao3resposta.jpg" class="img-pergunta">
+      <button class="btn" onclick="irPara('slide-p4')">PRÓXIMO</button>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div class="slide" id="slide-p4">
+      <h2>PERGUNTA 4</h2>
+      <p>Qual animal está na imagem?</p>
+      <img src="assets/questao4.jpg" class="img-pergunta">
+      <input type="text" id="resposta-p4" placeholder="Digite sua resposta aqui">
+      <button class="btn" onclick="verificarTextoFlex('slide-p4', 'slide-p4-feedback', [
+        'cachorro dálmata',
+        'cachorro dalmata',
+        'dálmata',
+        'dalmata',
+        'Dalmata',
+        'Dálmata',
+        'um dalmata',
+        'Um dalmata',
+        'cachorro',
+        'um cachorro',
+        'Cachorro',
+        'Um cachorro'
+      ])">RESPONDER</button>
+      <p class="feedback" id="feedback-p4"></p>
+    </div>
+
+    <div class="slide" id="slide-p4-feedback">
+      <h2>EXPLICAÇÃO</h2>
+      <h1>Um cachorro</h1>
+      <img src="assets/questao4resposta.jpg" class="img-pergunta">
+      <button class="btn" onclick="irPara('slide-p5')">PRÓXIMO</button>
+    </div>
+
+    <!-- Pergunta 5 -->
+    <div class="slide" id="slide-p5">
+      <h2>PERGUNTA 5</h2>
+      <p>Movendo palito(s), qual o menor número necessário?</p>
+      <img src="assets/questao5.jpg" class="img-pergunta">
+      <button class="btn" onclick="verificar('slide-p5', 'A', 'slide-p6')">A. 2</button>
+      <button class="btn" onclick="verificar('slide-p5', 'A', 'slide-p6')">B. 4</button>
+      <button class="btn" onclick="verificar('slide-p5', 'A', 'slide-p6')">C. 3</button>
+      <button class="btn" onclick="verificar('slide-p5', 'A', 'slide-p6')">D. 5</button>
+      <p class="feedback" id="feedback-p5"></p>
+    </div>
+
+    <!-- Pergunta 6 -->
+    <div class="slide" id="slide-p6">
+      <h2>PERGUNTA 6</h2>
+      <p>Qual animal está escondido na imagem?</p>
+      <img src="assets/questao6.jpg" class="img-pergunta">
+      <input type="text" id="resposta-p6" placeholder="Digite sua resposta aqui">
+      <button class="btn" onclick="verificarTextoFlex('slide-p6', 'slide-p6-feedback', [
+        'golfinho', 'golfinhos', 'Golfinho', 'Golfinhos', 'Um golfinho', 'um golfinho'
+      ])">RESPONDER</button>
+      <p class="feedback" id="feedback-p6"></p>
+    </div>
+
+    <div class="slide" id="slide-p6-feedback">
+      <h2>EXPLICAÇÃO</h2>
+      <h1>Um golfinho</h1>
+      <img src="assets/questao6resposta.jpg" class="img-pergunta">
+      <button class="btn" onclick="irPara('slide-p7')">PRÓXIMO</button>
+    </div>
+
+    <!-- Pergunta 7 -->
+    <div class="slide" id="slide-p7">
+      <h2>PERGUNTA 7</h2>
+      <p>Complete o que falta:</p>
+      <img src="assets/questao7.jpg" class="img-pergunta">
+      <button class="btn" onclick="verificar('slide-p7', 'D', 'slide-fim')">A. 9</button>
+      <button class="btn" onclick="verificar('slide-p7', 'D', 'slide-fim')">B. 36</button>
+      <button class="btn" onclick="verificar('slide-p7', 'D', 'slide-fim')">C. 42</button>
+      <button class="btn" onclick="verificar('slide-p7', 'D', 'slide-fim')">D. 48</button>
+      <p class="feedback" id="feedback-p7"></p>
+    </div>
+
+    <div class="slide" id="slide-fim">
+      <h2>OBRIGADO!!</h2>
+      <img src="assets/fim.jpg" class="img-pergunta">
+      <p>FIM</p>
+      <button class="btn" onclick="reiniciar()">RECOMEÇAR</button>
+    </div>
+
+  <audio id="som-acerto" src="assets/acerto.mp3" preload="auto"></audio>
+<audio id="som-erro" src="assets/erro.mp3" preload="auto"></audio>
+<script>
+let tentativas = {};
+
+function irPara(id) {
+  document.querySelectorAll('.slide').forEach(slide => {
+    slide.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+function tocarSom(id) {
+  const som = document.getElementById(id);
+  if (som) som.play();
+}
+
+function verificar(slideId, correta, proximoId) {
+  const slide = document.getElementById(slideId);
+  const feedback = slide.querySelector('.feedback');
+  if (!tentativas[slideId]) tentativas[slideId] = 0;
+  const botaoClicado = event.target.innerText.trim()[0];
+
+  if (botaoClicado === correta) {
+    tocarSom("som-acerto");
+    mostrarFeedbackAcerto(proximoId);
+    tentativas[slideId] = 0;
+  } else {
+    tentativas[slideId]++;
+    feedback.textContent = 'ERROU';
+    tocarSom("som-erro");
+    if (tentativas[slideId] >= 2) {
+      mostrarFeedbackErro(proximoId);
+      tentativas[slideId] = 0;
+    }
+  }
+}
+
+function verificarTextoFlex(slideId, proximoId, respostasAceitas) {
+  const input = document.querySelector(`#${slideId} input`).value.trim().toLowerCase();
+  const feedback = document.querySelector(`#feedback-${slideId.split('-')[1]}`);
+  if (!tentativas[slideId]) tentativas[slideId] = 0;
+  const aceitas = respostasAceitas.map(r => r.toLowerCase());
+
+  if (aceitas.includes(input)) {
+    tocarSom("som-acerto");
+    mostrarFeedbackAcerto(proximoId);
+    tentativas[slideId] = 0;
+  } else {
+    tentativas[slideId]++;
+    feedback.textContent = 'ERROU';
+    tocarSom("som-erro");
+    if (tentativas[slideId] >= 2) {
+      mostrarFeedbackErro(proximoId);
+      tentativas[slideId] = 0;
+    }
+  }
+}
+
+function mostrarFeedbackAcerto(proximoId) {
+  const id = `slide-feedback-acerto-${proximoId}`;
+  if (!document.getElementById(id)) {
+    const div = document.createElement('div');
+    div.className = 'slide';
+    div.id = id;
+    div.innerHTML = `
+      <h2 style="color: limegreen;">Você acertou!</h2>
+      <img src="assets/acerto.jpg" class="img-pergunta">
+      <button class="btn" onclick="irPara('${proximoId}')">PRÓXIMO</button>
+    `;
+    document.querySelector('.container').appendChild(div);
+  }
+  irPara(id);
+}
+
+function mostrarFeedbackErro(proximoId) {
+  const id = `slide-feedback-erro-${proximoId}`;
+  if (!document.getElementById(id)) {
+    const div = document.createElement('div');
+    div.className = 'slide';
+    div.id = id;
+    div.innerHTML = `
+      <h2 style="color: red;">Você errou!</h2>
+      <img src="assets/erro.jpg" class="img-pergunta">
+      <button class="btn" onclick="irPara('${proximoId}')">PRÓXIMO</button>
+    `;
+    document.querySelector('.container').appendChild(div);
+  }
+  irPara(id);
+}
+
+function reiniciar() {
+  irPara('slide-p1');
+}
+</script>
+</body>
+</html>
